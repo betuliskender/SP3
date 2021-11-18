@@ -1,0 +1,115 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface IO
+
+Main *-- Admin: has
+Admin *-- Tournament
+Main *-- User
+Tournament <|-- GroupTournament: is
+Tournament <|-- Knockout: is
+GroupTournament *-- Match: has
+Knockout *-- Match: has
+Team *-- Player: has
+Tournament *-- Team: has
+Tournament *-- Scoreboard: has
+Main *-- View: has
+Main *-- UI: has
+User *-- Tournament
+Main *-- IO
+IO *-- DBConnector
+IO *-- FileReader
+
+
+Main : static String input
+Main : enum Datasource
+Main : ArrayList<Tournament> allTournaments
+Main : ArrayList<Team> allTeams
+Main : IO io
+Main : static void mainMenu()
+
+IO : void saveTournamentData()
+IO : ArrayList<Tournament> readTournamentData()
+IO : void saveTeamData()
+IO : ArrayList<Team> readTeamData()
+
+DBConnector : static String DB_URL
+DBConnector : static String USER
+DBConnector : static String PASS
+
+Admin : Tournament chosenTournament
+Admin : static void adminMainMenu()
+Admin : static void createTournament()
+Admin : static void openRegistration()
+Admin : static void closeRegistration()
+Admin : static void setNewRound()
+Admin : static void setTimeTable()
+Admin : static void editGamePlan()
+Admin : static void startMatch()
+Admin : closeTournament()
+
+User : static String MSG
+User : static void userMenu()
+User : static void createTeam()
+User : static void removeTeam()
+User : static void addPlayerToTeam()
+User : static void removePlayerFromTeam()
+
+View : static String showAdminMenu()
+View : static void showRegisteredTeams()
+View : static String showUserMenu()
+View : static void showGamePlan()
+View : static void showScoreboard()
+View : static void showTimetable()
+
+UI : static String getUserInput()
+
+Tournament : static boolean registrationIsOpen
+Tournament : static ArrayList<Team> winnerTeams
+Tournament : ArrayList<Team[]> gamePlan
+Tournament : static int matchIndex
+Tournament : static int counter
+Tournament : int id
+Tournament : String tournamentName
+Tournament : String tournamentType
+Tournament : boolean tournamentIsOpen
+Tournament : boolean registrationIsOpen
+Tournament : void makeGamePlan()
+Tournament : void getTournamentType()
+
+Knockout : ArrayList<Integer> chosenIndexes
+Knockout : Team defaultTeam
+Knockout : @Override makeGamePlan()
+Knockout : @Override getTournamentType()
+
+Team : String teamName
+Team : int totalScore
+Team : int numberOfGoals
+Team : ArrayList<Player> teamPlayers
+Team : int id
+Team : static int counter
+Team : void addPlayer ()
+Team : String getTeamName()
+Team : int getNumberOfGoals()
+Team : int getTotalScore()
+Team : void setNumberOfGoals()
+Team : void setTotalScore()
+Team : @Override toString()
+
+Scoreboard : static Team [] teamsWithTotalScore
+Scoreboard : static void setScoreboard()
+Scoreboard : static String printScoreBoard()
+
+Match : int numberOfGoalsTeam1
+Match : int numberOfGoalsTeam2
+Match : Team[] matchUp
+Match : Team team1
+Match : Team team2
+Match : void runMatch()
+Match : void calculateResult()
+
+Player : String playerName
+Player : String schoolClassName
+Player : String phoneNumber
+Player : @Override toString()
+
+@enduml

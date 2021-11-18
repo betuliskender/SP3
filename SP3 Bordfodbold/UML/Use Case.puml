@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor User as p
+actor Admin as a
+
+usecase "RegisterTeam" as UC1
+usecase "CreateTournament" as UC2
+usecase "ManageTournament" as UC3
+usecase "ManageMatch" as UC4
+usecase "ViewTournament" as UC5
+
+UC2 --> p
+p --> UC1
+a --> UC2
+UC2 --> UC3
+UC3 --> UC4
+a --> UC5
+p --> UC5
+UC1 --> UC3
+
+@enduml

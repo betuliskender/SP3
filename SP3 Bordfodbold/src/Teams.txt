@@ -1,0 +1,16 @@
+TEAM: blåbær
+Team Players: 
+PLAYER NAME: Malene - FROM SCHOOL CLASS: DatB1
+PLAYER NAME: Viggo - FROM SCHOOL CLASS: Dat1b
+TEAM: snakes
+Team Players: 
+PLAYER NAME: flemming - FROM SCHOOL CLASS: 2
+PLAYER NAME: Henning - FROM SCHOOL CLASS: 1b
+TEAM: purløg
+Team Players: 
+PLAYER NAME: Mathias - FROM SCHOOL CLASS: marketing
+PLAYER NAME: Ida - FROM SCHOOL CLASS: grafisk design
+TEAM: flodhest
+Team Players: 
+PLAYER NAME: Sofia - FROM SCHOOL CLASS: dat1b
+PLAYER NAME: Hest - FROM SCHOOL CLASS: 1h
